@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Web.Script.Services;
 using Zapateria.Controller;
 using Zapateria.Modelo;
 
@@ -15,11 +16,12 @@ namespace WebService.Service
     [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
     [System.ComponentModel.ToolboxItem(false)]
     // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
-    [System.Web.Script.Services.ScriptService]
+    [ScriptService]
     public class ClienteService : System.Web.Services.WebService
     {
         Conexion con = new Conexion();
-        [WebMethod]
+        //[WebMethod]
+        [ScriptMethod(UseHttpGet = true)]
         public List<Cliente> getClientes()
         {
             return con.getClientes();
